@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    android:animateLayoutChanges="true">
+
+    <!-- 整体透明画布 -->
+    <SurfaceView
+        android:id="@+id/preview_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <View
+        android:id="@+id/view_bar_header"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Group
+        android:id="@+id/group_scanner"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tv_scanner_tips, ll_flashlight"/>
+
+    <TextView
+        android:id="@+id/tv_scanner_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请将二维码对准此取景框"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/ll_flashlight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_scanner_tips">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_flashlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_flashlight_off" />
+
+        <TextView
+            android:id="@+id/tv_flashlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="轻触照亮"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp12" />
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <!-- 扫描取景框 -->
+        <com.gofun.zxing.view.ViewfinderView
+            android:id="@+id/viewfinder_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:visibility="gone"
+            android:id="@+id/ll_et_brand_code"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:background="#B3ffffff">
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_brand_code"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginEnd="45dp"
+                android:layout_marginTop="188dp"
+                android:hint="请输入充电桩编号"
+                android:textColorHint="#BEBDC7"
+                android:textSize="@dimen/sp18"
+                android:textColor="#272828"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:background="@drawable/shape_et_brand_code_bg"/>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_start_charging"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginEnd="45dp"
+                android:layout_marginTop="31dp"
+                android:background="@drawable/shape_start_charging_btn_bg"
+                android:gravity="center"
+                android:text="启动充电"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp18"
+                android:textStyle="bold" />
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/toolBarHeight"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/toolBarHeight"
+            android:gravity="center"
+            android:text="扫码充电"
+            android:textColor="#272828"
+            android:textSize="@dimen/sp20"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_manual_input_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="无法识别二维码？试试手动输入"
+        android:drawablePadding="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_flashlight"
+        android:layout_marginTop="57dp"/>
+
+    <TextView
+        android:id="@+id/tv_support_brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=""
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_scanner_tips"
+        android:layout_marginBottom="173dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+
+</android.support.constraint.ConstraintLayout>

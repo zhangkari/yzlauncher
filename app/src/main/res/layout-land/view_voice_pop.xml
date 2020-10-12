@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="55dp"
+        android:layout_height="22dp"
+        android:background="@drawable/img_voice_pop_bg">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_voice_less"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="@id/tv_voice_value"
+            app:layout_constraintRight_toLeftOf="@id/tv_voice_value"
+            app:layout_constraintTop_toTopOf="@id/tv_voice_value"
+            app:srcCompat="@drawable/ic_voice_less" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_voice_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="50"
+            android:textColor="@color/c503B8B"
+            android:textSize="@dimen/sp12"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_voice_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="@id/tv_voice_value"
+            app:layout_constraintLeft_toRightOf="@id/tv_voice_value"
+            app:layout_constraintTop_toTopOf="@id/tv_voice_value"
+            app:srcCompat="@drawable/ic_voice_add" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

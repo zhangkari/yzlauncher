@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!--Android P系统限制了明文流量的网络请求，之下的版本没有影响，所以okhttp3会抛出该异常-->
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>

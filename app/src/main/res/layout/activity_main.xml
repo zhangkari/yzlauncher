@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_main_bg"
+    tools:context=".ui.main.MainActivity">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="iv_logo,tv_current_time,banner_view,scroll_view" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="23dp"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/iv_logo"
+        app:layout_constraintRight_toLeftOf="@id/tv_user_name"
+        app:layout_constraintTop_toTopOf="@id/iv_logo"
+        app:srcCompat="@drawable/img_head" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="30dp"
+        android:drawableEnd="@drawable/ic_arrow_down"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:text="点击登录"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp9"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/iv_logo"
+        app:layout_constraintRight_toLeftOf="@id/tv_current_time"
+        app:layout_constraintTop_toTopOf="@id/iv_logo" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_download_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:gravity="center_vertical"
+        android:text="下载列表"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp15"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/iv_logo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_logo" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_current_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="17dp"
+        android:text="16:25:05"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp15"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/iv_logo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_logo" />
+
+    <com.yz.books.widget.banner.BannerView
+        android:id="@+id/banner_view"
+        android:layout_width="match_parent"
+        android:layout_height="167dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="17dp"
+        app:hint_color="#99FFFFFF"
+        app:hint_gravity="center"
+        app:hint_mode="point"
+        app:hint_paddingBottom="10dp"
+        app:hint_radius="2"
+        app:layout_constraintTop_toBottomOf="@id/iv_logo"
+        app:play_delay="3000" />
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/banner_view"
+        app:layout_constraintRight_toRightOf="@id/banner_view"
+        app:layout_constraintTop_toBottomOf="@id/banner_view">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_book_massive"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginEnd="4dp"
+                android:scaleType="fitXY"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/iv_book_audio"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/img_book_read" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_book_audio"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="4dp"
+                android:scaleType="fitXY"
+                app:layout_constraintLeft_toRightOf="@id/iv_book_massive"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_book_massive"
+                app:srcCompat="@drawable/img_book_listen" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_topic"
+                android:layout_width="188dp"
+                android:layout_height="92dp"
+                android:focusable="true"
+                android:nextFocusLeft="@id/banner_view"
+                android:nextFocusUp="@id/iv_book_audio"
+                android:nextFocusDown="@id/iv_book_online"
+                android:paddingTop="2dp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="@id/iv_book_massive"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_book_massive"
+                app:srcCompat="@drawable/img_topic" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_book_journal"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintLeft_toLeftOf="@id/iv_book_massive"
+                app:layout_constraintRight_toRightOf="@id/iv_book_massive"
+                app:layout_constraintTop_toBottomOf="@id/iv_book_massive"
+                app:srcCompat="@drawable/img_book_journal" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_book_video"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:scaleType="fitXY"
+                app:layout_constraintLeft_toLeftOf="@id/iv_book_audio"
+                app:layout_constraintRight_toRightOf="@id/iv_book_audio"
+                app:layout_constraintTop_toTopOf="@id/iv_book_journal"
+                app:srcCompat="@drawable/img_book_video" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_book_display"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintLeft_toLeftOf="@id/iv_book_journal"
+                app:layout_constraintRight_toRightOf="@id/iv_book_journal"
+                app:layout_constraintTop_toBottomOf="@id/iv_book_journal"
+                app:srcCompat="@drawable/img_book_display" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_book_online"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:scaleType="fitXY"
+                app:layout_constraintLeft_toLeftOf="@id/iv_book_video"
+                app:layout_constraintRight_toRightOf="@id/iv_book_video"
+                app:layout_constraintTop_toTopOf="@id/iv_book_display"
+                app:srcCompat="@drawable/img_book_online" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_machine_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="iv_yz_cover,tv_machine_code" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_yz_cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/img_yz_cover" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_machine_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp15"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

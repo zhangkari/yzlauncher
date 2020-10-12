@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:layout_margin="2dp"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_book_img"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/img_book_journal"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_book_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginTop="2dp"
+        android:text="解忧杂货店"
+        android:textColor="@color/c161616"
+        android:textSize="@dimen/sp6"/>
+
+</LinearLayout>

@@ -1,0 +1,113 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'android-aspectjx'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.yz.launcher"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 10000
+        versionName "1.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        yzbook {
+            keyAlias 'yzbook'
+            keyPassword '123456'
+            storeFile file('yzbook')
+            storePassword '123456'
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.yzbook
+            zipAlignEnabled true//Zipalign优化
+            minifyEnabled false//设置代码混淆
+            shrinkResources false//移除无用的resource文件
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            signingConfig signingConfigs.yzbook
+            zipAlignEnabled true//Zipalign优化
+            minifyEnabled false//设置代码混淆
+            shrinkResources false//移除无用的resource文件
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // work-runtime-ktx 2.1.0 and above now requires Java 8
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+greendao {
+    schemaVersion 6
+    daoPackage 'greendao'
+    targetGenDir 'src/main/java'
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    //implementation 'androidx.cardview:cardview:1.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+    implementation 'com.squareup.okhttp3:okhttp:4.2.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
+    api 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
+    api 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+    implementation 'me.jessyan:autosize:1.1.2'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    kapt 'com.github.bumptech.glide:compiler:4.10.0'
+    //bugly
+    implementation 'com.tencent.bugly:crashreport_upgrade:1.3.6'
+    implementation 'com.tencent.bugly:nativecrashreport:3.3.1'
+
+    implementation 'com.google.android.exoplayer:exoplayer:2.11.1'
+
+    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.0.0' //一个GreenDao3.0升级辅助框架
+    //数据库加密 解决报错问题Didn't find class "net.sqlcipher.database.SQLiteOpenHelper" on path: DexPathList
+    //implementation 'net.zetetic:android-database-sqlcipher:3.5.7@aar'
+
+    //implementation 'com.github.promeg:tinypinyin:2.0.3'
+    //implementation 'com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3'
+
+    implementation 'com.yanzhenjie:permission:2.0.0-rc11'
+
+    implementation files('libs/tbs_sdk_thirdapp_v4.3.0.1072.jar')
+    implementation project(path: ':epubCore')
+    implementation project(path: ':zxing')
+    implementation project(path: ':permission')
+}

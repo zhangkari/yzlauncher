@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="326dp"
+        android:layout_height="470dp"
+        android:background="@drawable/shape_normal_dialog_bg">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_book_img"
+            android:layout_width="75dp"
+            android:layout_height="92dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="43dp"
+            android:scaleType="fitXY"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img_book_journal" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_book_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="5dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="名 称：解忧杂货店"
+            android:textColor="@color/c161616"
+            android:textSize="@dimen/sp10"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/iv_book_img"
+            app:layout_constraintRight_toLeftOf="@id/iv_qrcode"
+            app:layout_constraintTop_toTopOf="@id/iv_book_img" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="作 者：东野圭吾"
+            android:textColor="@color/c161616"
+            android:textSize="@dimen/sp10"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@id/tv_book_name"
+            app:layout_constraintRight_toRightOf="@id/tv_book_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_book_name" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/ic_read"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="@id/iv_book_img"
+            app:layout_constraintLeft_toRightOf="@id/iv_book_img" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:drawableStart="@drawable/sel_collect_status_bg"
+            android:drawablePadding="5dp"
+            android:focusable="true"
+            android:padding="5dp"
+            android:text="收藏"
+            android:textColor="@color/c161616"
+            android:textSize="@dimen/sp9"
+            app:layout_constraintBottom_toBottomOf="@id/btn_done"
+            app:layout_constraintLeft_toRightOf="@id/btn_done"
+            app:layout_constraintTop_toTopOf="@id/btn_done" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:drawableStart="@drawable/ic_comment"
+            android:drawablePadding="5dp"
+            android:focusable="true"
+            android:padding="5dp"
+            android:text="评论"
+            android:textColor="@color/c161616"
+            android:textSize="@dimen/sp9"
+            app:layout_constraintBottom_toBottomOf="@id/tv_collect"
+            app:layout_constraintLeft_toRightOf="@id/tv_collect"
+            app:layout_constraintTop_toTopOf="@id/tv_collect" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_qrcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            app:layout_constraintRight_toRightOf="@id/btn_back"
+            app:layout_constraintTop_toTopOf="@id/iv_book_img" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_qrcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="扫一扫"
+            android:textColor="@color/c161616"
+            android:textSize="@dimen/sp8"
+            app:layout_constraintLeft_toLeftOf="@id/iv_qrcode"
+            app:layout_constraintRight_toRightOf="@id/iv_qrcode"
+            app:layout_constraintTop_toBottomOf="@id/iv_qrcode" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="14dp"
+            android:background="@drawable/ic_back"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_massive_book_detail_dialog_bg"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_book_img">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="12dp"
+                android:drawableStart="@drawable/ic_recommend"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="相似推荐"
+                android:textColor="@color/c161616"
+                android:textSize="@dimen/sp10" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="15dp"
+                android:background="@color/c503B8B" />
+
+            <com.yz.books.widget.xrecyclerview.XRecyclerView
+                android:id="@+id/recycler_view_books"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="12dp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

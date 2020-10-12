@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tv_name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="@color/c161616"
+    android:textSize="@dimen/sp7"
+    android:text="回信放在牛奶箱回信放在牛奶箱回信放在牛奶箱"
+    android:lines="1"
+    android:ellipsize="end"
+    android:paddingStart="13dp"
+    android:paddingEnd="13dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    tools:ignore="MissingDefaultResource">
+
+</androidx.appcompat.widget.AppCompatTextView>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    tools:ignore="MissingDefaultResource">
+
+    <ImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="192dp"
+        android:layout_height="120dp"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/iv_cover"
+        android:textColor="@color/cF5F4D5"
+        android:textSize="@dimen/sp18" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/iv_cover"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textColor="@color/cF5F4D5"
+        android:textSize="@dimen/sp16" />
+
+    <Button
+        android:id="@+id/btn_live"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_content"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/bg_btn_live_play"
+        android:drawableEnd="@drawable/ic_live_play"
+        android:paddingStart="12dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="4dp"
+        android:text="进入直播"
+        android:textColor="@color/cF5F4D5"
+        android:textSize="@dimen/sp18" />
+</RelativeLayout>

@@ -1,0 +1,184 @@
+package com.yz.books.widget.banner;
+
+import android.annotation.TargetApi;
+import android.database.DataSetObserver;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+
+/**
+ * @author lilin
+ * @time on 2019/7/31 下午8:47
+ */
+public abstract class AbsLoopPagerAdapter extends PagerAdapter {
+
+    private BannerView mViewPager;
+    /**
+     * 用来存放View的集合
+     */
+    private ArrayList<View> mViewList = new ArrayList<>();
+
+    private class LoopHintViewDelegate implements HintViewDelegate {
+        @Override
+        public void setCurrentPosition(int position, BaseHintView hintView) {
+            if (hintView!=null&&getRealCount()>0){
+                hintView.setCurrent(position%getRealCount());
+            }
+        }
+
+        @Override
+        public void initView(int length, int gravity, BaseHintView hintView) {
+            if (hintView!=null){
+                hintView.initView(getRealCount(),gravity);
+            }
+        }
+    }
+
+    /**
+     * 刷新全部
+     */
+    @Override
+    public void notifyDataSetChanged() {
+        mViewList.clear();
+        initPosition();
+        super.notifyDataSetChanged();
+    }
+
+    /**
+     * 获取item索引
+     *
+     * POSITION_UNCHANGED表示位置没有变化，即在添加或移除一页或多页之后该位置的页面保持不变，
+     * 可以用于一个ViewPager中最后几页的添加或移除时，保持前几页仍然不变；
+     *
+     * POSITION_NONE，表示当前页不再作为ViewPager的一页数据，将被销毁，可以用于无视View缓存的刷新；
+     * 根据传过来的参数Object来判断这个key所指定的新的位置
+     * @param object                        objcet
+     * @return
+     */
+    @Override
+    public int getItemPosition(@NonNull Object object) {
+        return POSITION_NONE;
+    }
+
+    /**
+     * 注册数据观察者监听
+     * @param observer                      observer
+     */
+    @Override
+    public void registerDataSetObserver(@NonNull DataSetObserver observer) {
+        super.registerDataSetObserver(observer);
+        initPosition();
+    }
+
+    private void initPosition(){
+        if (getRealCount()>1){
+            if (mViewPager.getViewPager().getCurrentItem() == 0&&getRealCount()>0){
+                int half = Integer.MAX_VALUE/2;
+                int start = half - half%getRealCount();
+                setCurrent(start);
+            }
+        }
+    }
+
+    /**
+     * 设置位置，利用反射实现
+     * @param index                         索引
+     */
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    private void setCurrent(int index){
+        try {
+            Field field = ViewPager.class.getDeclaredField("mCurItem");
+            field.setAccessible(true);
+            field.set(mViewPager.getViewPager(),index);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public AbsLoopPagerAdapter(BannerView viewPager){
+        this.mViewPager = viewPager;
+        viewPager.setHintViewDelegate(new LoopHintViewDelegate());
+    }
+
+    @Override
+    public boolean isViewFromObject(@NonNull View arg0, @NonNull Object arg1) {
+        return arg0==arg1;
+    }
+
+    /**
+     * 如果页面不是当前显示的页面也不是要缓存的页面，会调用这个方法，将页面销毁。
+     * @param container                     container
+     * @param position                      索引
+     * @param object                        object
+     */
+    @Override
+    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+        container.removeView((View) object);
+        //Log.d("PagerAdapter","销毁的方法");
+    }
+
+    /**
+     *  要显示的页面或需要缓存的页面，会调用这个方法进行布局的初始化。
+     * @param container                     container
+     * @param position                      索引
+     * @return
+     */
+    @NonNull
+    @Override
+    public Object instantiateItem(@NonNull ViewGroup container, int position) {
+        int realPosition = position%getRealCount();
+        View itemView = findViewByPosition(container,realPosition);
+        container.addView(itemView);
+        //Log.d("PagerAdapter","创建的方法");
+        return itemView;
+    }
+
+    /**
+     * 这个是避免重复创建，如果集合中有，则取集合中的
+     * @param container                     container
+     * @param position                      索引
+     * @return
+     */
+    private View findViewByPosition(ViewGroup container, int position){
+        for (View view : mViewList) {
+            if (((int)view.getTag()) == position&&view.getParent()==null){
+                return view;
+            }
+        }
+        View view = getView(container,position);
+        view.setTag(position);
+        mViewList.add(view);
+        return view;
+    }
+
+
+    @Deprecated
+    @Override
+    public final int getCount() {
+        //设置最大轮播图数量 ，如果是1那么就是1，不轮播；如果大于1则设置一个最大值，可以轮播
+        //return getRealCount();
+        return getRealCount()<=1?getRealCount(): Integer.MAX_VALUE;
+    }
+
+    /**
+     * 获取轮播图数量
+     * @return                          数量
+     */
+    public abstract int getRealCount();
+
+    /**
+     * 创建view
+     * @param container                 viewGroup
+     * @param position                  索引
+     * @return
+     */
+    public abstract View getView(ViewGroup container, int position);
+
+}

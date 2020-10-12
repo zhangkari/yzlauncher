@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rmkj.lib.view.drag.DragLayer xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dragLayer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent" >
+
+    <ImageView
+        android:id="@+id/startHandle"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:scaleType="center"
+        android:src="@drawable/drag_right" 
+        />
+
+    <ImageView
+        android:id="@+id/endHandle"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:scaleType="center"
+        android:src="@drawable/drag_right" />
+
+</rmkj.lib.view.drag.DragLayer>

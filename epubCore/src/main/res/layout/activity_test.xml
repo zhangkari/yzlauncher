@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TestActivity" >
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3" >
+
+        <RadioButton
+            android:id="@+id/tv_up"
+            android:layout_weight="1.0"
+            android:button="@null"
+            android:gravity="center"
+            android:text="上一页" />
+
+        <RadioButton
+            android:id="@+id/tv_down"
+            android:layout_weight="1.0"
+            android:button="@null"
+            android:gravity="center"
+            android:text="下一页" />
+
+        <RadioButton
+            android:id="@+id/tv_search"
+            android:layout_weight="1.0"
+            android:button="@null"
+            android:gravity="center"
+            android:text="搜索一" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_bright"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</LinearLayout>

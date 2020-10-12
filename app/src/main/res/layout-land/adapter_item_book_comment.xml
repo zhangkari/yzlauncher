@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    tools:ignore="MissingDefaultResource">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/c503B8B"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_user_head"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/img_head"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:text="东野奎吾，一个同时获得江户川乱步奖、日本推理作家协会奖、直木奖三大奖项日本推理小说家。他的《解忧杂货店》一反以往文风，抛却了血腥、谋杀、动机等因素，书中倾听平凡的人困惑并帮助他们解决问题，而书外则为万千读者指引方向。当我们对生活有困惑的时候，当我们站在人生岔路  ..."
+        android:textColor="@color/c161616"
+        android:textSize="@dimen/sp8"
+        android:lineSpacingExtra="2dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_user_head"
+        app:layout_constraintLeft_toRightOf="@id/iv_user_head"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

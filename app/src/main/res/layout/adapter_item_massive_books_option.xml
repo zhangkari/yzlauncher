@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/sel_massive_books_option_bg"
+    android:padding="7dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp">
+
+    <View
+        android:id="@+id/view_line"
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@color/c4D3B81"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_option_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/sp9"
+        android:textColor="@color/c4D3B81"
+        android:text="所有图书"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_main_bg">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="45dp"
+        android:background="@drawable/img_back"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_pwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="btn_sure,et_pwd,tv_res_path,view_keyboard" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_pwd"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_pwd_et_bg"
+        android:focusable="true"
+        android:hint="请输入您的管理员密码"
+        android:inputType="textPassword"
+        android:lines="1"
+        android:maxLength="20"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/cC9C6F1"
+        android:textSize="@dimen/sp12"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_back" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_sure"
+        android:layout_width="280dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape_sure_btn_bg"
+        android:text="确定"
+        android:textColor="@color/c4D3B81"
+        android:textSize="@dimen/sp10"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/et_pwd"
+        app:layout_constraintRight_toRightOf="@id/et_pwd"
+        app:layout_constraintTop_toBottomOf="@id/et_pwd" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_res_path"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="存储路径"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp11"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <!--
+    <android.inputmethodservice.KeyboardView
+        android:id="@+id/view_keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:background="#212121"
+        android:focusable="true"
+        android:keyBackground="@drawable/key_bg"
+        android:keyTextColor="#dddddd"
+        android:keyTextSize="16sp"
+        android:labelTextSize="16sp"
+        android:padding="2dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/tv_res_path"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_sure" />
+    -->
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tv_machine_code,tv_setting,tv_check_app_update,tv_download_list" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:text="系统设置"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp15"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_back" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_check_app_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:text="App更新检测"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp15"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_setting" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_clear_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:text="清除本地数据"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp15"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_check_app_update" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_machine_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp15"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_check_app_update" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_download_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:text="下载列表"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp15"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_machine_code" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

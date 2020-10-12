@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_book_img"
+        android:layout_width="65dp"
+        android:layout_height="80dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/img_book_journal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="8dp"
+        android:text="昵称：小四max"
+        android:textColor="@color/c161616"
+        android:textSize="@dimen/sp10"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/iv_book_img"
+        app:layout_constraintLeft_toRightOf="@id/iv_book_img"/>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_all_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_all_comment"
+        android:layout_marginStart="10dp"
+        app:layout_constraintLeft_toRightOf="@id/tv_user_name"
+        app:layout_constraintTop_toTopOf="@id/tv_user_name"
+        app:layout_constraintBottom_toBottomOf="@id/tv_user_name"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_detail"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="8dp"
+        android:text="东野奎吾，一个同时获得江户川乱步奖、日本推理作家协会奖、直木奖三大奖项日本推理小说家。他的《解忧杂货店》一反以往文风，抛却了血腥、谋杀、动机等因素，书中倾听平凡的人困惑并帮助他们解决问题，而书外则为万千读者指引方向。当我们对生活有困惑的时候，当我们站在人生岔路  ..."
+        android:textColor="@color/c161616"
+        android:textSize="@dimen/sp6"
+        android:lineSpacingExtra="2dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/iv_book_img"
+        app:layout_constraintLeft_toRightOf="@id/iv_book_img"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

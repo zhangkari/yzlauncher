@@ -1,0 +1,74 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#4F3B86</item>
+        <item name="colorPrimaryDark">#4F3B86</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <declare-styleable name="BannerView">
+        <attr name="hint_mode">         <!--轮播图红点是0，数字是1-->
+            <enum name="point" value="0" />
+            <enum name="number" value="1" />
+        </attr>
+        <attr name="hint_gravity">      <!--轮播图红点或数字的位置，左，中，右-->
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <attr name="hint_paddingRight" format="dimension"/>
+        <attr name="hint_paddingLeft" format="dimension"/>
+        <attr name="hint_paddingTop" format="dimension"/>
+        <attr name="hint_paddingBottom" format="dimension"/>
+        <attr name="hint_radius" format="integer"/>
+        <attr name="play_delay" format="integer" />
+        <attr name="hint_color" format="color" />
+        <attr name="hint_alpha" format="integer" />
+    </declare-styleable>
+
+    <!--base dialog-style-->
+    <style name="BaseDialogStyle" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <!--base dialog动画的style-->
+    <style name="BaseDialogAnim" parent="android:Animation" mce_bogus="1">
+        <item name="android:windowEnterAnimation">@anim/anim_bottom_dialog_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_bottom_dialog_out</item>
+    </style>
+
+    <!--right dialog动画的style-->
+    <style name="RightDialogAnim" parent="android:Animation" mce_bogus="1">
+        <item name="android:windowEnterAnimation">@anim/anim_dialog_right_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_dialog_right_out</item>
+    </style>
+
+    <style name="TranslucentActivityStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>//将背景设置成透明的
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="DialogActivityStyle" parent="@style/Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item><!-- Activity无标题-->
+        <item name="android:windowBackground">@android:color/transparent</item><!-- dialog外无背景-->
+        <item name="android:windowCloseOnTouchOutside">false</item><!-- dialog外点击无效果-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowFrame">@android:color/transparent</item><!--边框-->
+        <item name="android:windowIsFloating">true</item><!--是否浮如今activity之上-->
+        <item name="android:windowIsTranslucent">true</item><!--半透明-->
+        <item name="android:backgroundDimAmount">0.3</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+</resources>
